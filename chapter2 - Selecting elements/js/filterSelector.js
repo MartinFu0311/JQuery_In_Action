@@ -61,6 +61,20 @@ console.log($typeLastChild);
 /*
 nth-child 索引从 1 开始而不是从 0 开始
 */
-var $threeChild = $('div:nth-child(2)');  //查找的是 div 类型标签，是它的父元素的最后一个符合指定类型的子元素
+/*
+查找的是 div 类型标签，是它的父元素的第二个子元素
+*/
+var $threeChild = $('div:nth-child(2)');
 console.log('匹配上下文第二个子元素选择器 "div:nth-child(2)" 结果:')
 console.log($threeChild);
+
+/*
+查找的是 div 类型标签，是它的父元素的偶数个子元素
+*/
+var $evenChild = $('div:nth-child(even)');
+console.log('匹配上下文偶数个子元素选择器 "div:nth-child(even)" 结果:')
+console.log($evenChild);
+
+var $evenChild = $('div:nth-child(2n + 1)');
+console.log('匹配上下文偶数个子元素选择器 "div:nth-child(2n + 1)" 结果:')
+console.log($evenChild);

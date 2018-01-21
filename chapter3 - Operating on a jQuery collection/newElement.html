@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>过滤器</title>
+        <title>创建新 HTML 元素</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="../css/main.css"/>
         <style>
@@ -112,13 +112,16 @@
             </div>
             <input type="submit" id="button-submit" value="Submit" />
          </form>
+
+         <ul class="levels">
+             <li data-level="1" data-points="1" data-technologies="javascript node grunt">Level 1</li>
+             <li data-level="2" data-points="10" data-technologies="php composer">Level 2</li>
+             <li data-level="3" data-points="100" data-technologies="jquery requirejs">Level 3</li>
+             <li data-level="4" data-points="1000" data-technologies="javascript jquery backbone">Level 4</li>
+         </ul>
       </div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <!-- 如果 CDN 无法访问，就使用本地文件 -->
-        <script>
-            window.jQuery || document.write('<script src="../js/jquery-3.2.1.js"><\/script>')
-        </script>
-        <script src="js/filters.js"></script>
+      <script src="../js/jquery-3.2.1.js"></script>
+        <script src="js/newElement.js"></script>
     </body>
 </html>
