@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Understand Event Model</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="../css/main.css"/>
+        <style>
+            img
+            {
+                display: block;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <img id="example" src="images/example.jpg" alt="A bolt of lightning"
+            onclick="console.log('At ' + formatDate(new Date()) + ' BOOM!');" />
+ 
+        <p>The output is printed on the console</p>
+
+        <!-- 在 onsubmit 中调用返回 false 的方法不能阻止默认动作 -->
+        <!-- <form id="myForm" action="www.cnblogs.com" onsubmit="doSubmit()"> -->
+        <form id="myForm" action="www.cnblogs.com" onsubmit="return false">
+            <div>
+                <label for="name">Name:</label>
+                <input id="name" name="name" type="text" />
+            </div>
+            <div>
+                <button type="submit">Click me!</button>
+            </div>
+        </form>
+ 
+        <form id="myForm2" action="www.cnblogs.com" onsubmit="prevent()">
+            <div>
+                <label for="name2">Name:</label>
+                <input id="name2" name="name2" type="text" />
+            </div>
+            <div>
+                <button type="submit">Click me2!</button>
+            </div>
+        </form>
+
+        <div id="dom2">
+            <button id="multipleButton" type="button">multiple events</button>
+        </div>
+    
+        <div id="firstLevel">
+            <div id='secondLevel'>
+                <input id="testButton" type="button" value="捕获和冒泡" />
+            </div>
+        </div>
+
+        <script src="js/understandEventModel.js"></script>
+    </body>
+</html>

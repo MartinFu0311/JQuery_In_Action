@@ -18,6 +18,7 @@ console.log($aLast);
 
 //索引从 0 开始，返回偶数索引元素
 var $aEven = $('a:even');
+$aEven.addClass('red-border');
 console.log('a偶数元素选择器 "a:even" 结果:')
 console.log($aEven);
 
@@ -69,7 +70,7 @@ console.log('匹配上下文第二个子元素选择器 "div:nth-child(2)" 结�
 console.log($threeChild);
 
 /*
-查找的是 div 类型标签，是它的父元素的偶数个子元素
+查找的是 div 类型标签，是它的父元素的第偶数个子元素，索引仍是从 1 开始
 */
 var $evenChild = $('div:nth-child(even)');
 console.log('匹配上下文偶数个子元素选择器 "div:nth-child(even)" 结果:')

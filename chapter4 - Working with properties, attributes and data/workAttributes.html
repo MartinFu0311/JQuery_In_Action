@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>层次选择器</title>
+        <title>使用属性</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="../css/main.css"/>
         <style>
@@ -39,7 +39,7 @@
          <h2>Hello, I'm a &lt;h2&gt; element</h2>
          <p>
             I'm a paragraph, nice to meet you.
-         </p>         
+         </p>
 
          <ul class="my-list">
             <li>
@@ -92,17 +92,6 @@
             </tbody>
          </table>
 
-         <table id="test">
-            <thead>
-                <th>111</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>222</td>
-                </tr>
-            </tbody>
-        </table>
-
          <form id="form-fake" action="#">
             <div>
                <label for="text-field">Text:</label>
@@ -123,13 +112,18 @@
             </div>
             <input type="submit" id="button-submit" value="Submit" />
          </form>
+
+         <ul class="levels">
+             <li id="li1" data-level="1" data-points="1" data-technologies="javascript node grunt">Level 1</li>
+             <li id="li2" data-level="2" data-points="10" data-technologies="php composer">Level 2</li>
+             <li id="li3" data-level="3" data-points="100" data-technologies="jquery requirejs">Level 3</li>
+             <li id="li4" data-level="4" data-points="1000" data-technologies="javascript jquery backbone" name="li4">Level 4</li>
+         </ul>
+
+         <input id="level" type="text" value="I'm a text!" data-custom="foo" />
       </div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <!-- 如果 CDN 无法访问，就使用本地文件 -->
-        <script>
-            window.jQuery || document.write('<script src="../js/jquery-3.2.1.js"><\/script>')
-        </script>
-        <script src="js/hierarchySelector.js"></script>
+      <script src="../js/jquery-3.2.1.js"></script>
+      <script src="js/workAttributes.js"></script>
     </body>
 </html>

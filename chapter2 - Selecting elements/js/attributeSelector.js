@@ -5,7 +5,7 @@ console.log($externalLinks);
 
 //属性 href 值不等于 http://jquery.com
 var $externalNotEqualLinks = $('a[href!="http://jquery.com"]');
-console.log('选择器 "a[href^=\"http://jquery.com\"" 结果:')
+console.log('选择器 "a[href!=\"http://jquery.com\"" 结果:')
 console.log($externalNotEqualLinks);
 
 /*  不能识别。。。书上讲错了？？？

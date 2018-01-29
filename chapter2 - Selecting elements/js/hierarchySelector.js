@@ -13,7 +13,7 @@ var $siblingDirect = $('ul+table');
 console.log('层次选择器紧邻同级 "ul+table" 结果：');
 console.log($siblingDirect);
 
-//同级元素
+//同级元素  只能筛选后面的同级元素
 var $siblingNotDirect = $('ul~table');
 console.log('层次选择器同级 "ul~table" 结果：');
 console.log($siblingNotDirect);
