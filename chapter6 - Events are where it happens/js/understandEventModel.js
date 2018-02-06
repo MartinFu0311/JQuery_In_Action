@@ -10,7 +10,6 @@ function formatDate(date) {
             date.getMilliseconds();
 }
 
-
 /*
 id 为 example 的图片在 HTML 代码中直接在标签属性 onclick 中声明了一个 click 事件，这个属性值会被使用创建一个
 匿名函数体，类似下面的代码，直接在标签属性中声明事件不是推荐的做法
