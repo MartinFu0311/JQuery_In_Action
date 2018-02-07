@@ -139,3 +139,132 @@ $('#btn-remove').on('click', function(event){
 });
 
 
+/*
+触发事件
+有时候，系统使用脚本控制事件的触发和执行过程
+调用作为处理器的函数不会导致语义动作或者冒泡传播发生
+*/
+/*
+trigger(eventType[, data])
+为所有匹配的元素调用传递事件类型建立任意事件处理器和行为，全力模拟事件被触发，包括 DOM 层级传播和语义动作执行
+
+eventType(String|jQuery.Event)：指定要调用的事件类型的名字，也可以包含命名空间；还可以传递 jQuery.Event
+data(Any)：传递给处理器的数据，如果是数组，传递的元素会作为不同的参数
+
+返回 jQuery 集合
+ */
+$('#foo').on('click', function(event, par1, par2, par3){
+    console.log(event.type + "_" + event.target.id);
+    console.log(par1, par2, par3);
+});
+
+/*
+这里要注意的是参数传递的是数组
+*/
+$('#foo').trigger('click', [1, 2, 3]);
+
+/*
+triggerHandler(eventType[, data])
+为匹配的元素（只是集合中的第一个元素）调用建立的事件处理器，没有出现冒泡传播、语义动作或者实时事件
+
+eventType(String|jQuery.Event)：指定要调用的事件类型的名字，也可以包含命名空间；还可以传递 jQuery.Event
+data(Any)：传递给处理器的数据，如果是数组，传递的元素会作为不同的参数
+
+返回最后一个处理器的返回值，如果没有返回值，返回 undefined
+ */
+$('#wrapper')
+    .on('focus', function(event){
+        console.log('Div focused!');
+    })
+    .on('click', function(event){
+        console.log('Div clicked!');
+    });
+
+$('#address')
+    .on('focus', function(event){
+        console.log('Input focused!');
+    })
+    .on('click', function(event){
+        console.log('Input clicked!');
+    }).triggerHandler('focus');
+
+$('#btnTrigger')
+    .on('click', function(event){
+        console.log('Button clicked!');
+    })
+    .trigger('click');
+
+
+/*
+快捷方式
+编写 on() 和 off() 完整语法很多时候会变得烦人，因此 jQuery 提供了快捷方式
+eventName([data, ] handler)
+通过方法名为指定事件使用的函数建立事件处理器，支持的方法如下：
+blur        focusout        mouseleave      resize
+change      keydown         mousemove       scroll
+click       keypress        mouseout        select
+dbclick     keyup           mouseover       submit
+focus       mousedown       mouseup
+focusin     mouseenter      ready
+
+data(Any)：作为 Event 实例的 data 属性传递给处理器的数据
+handler(Function)：作为事件处理器的函数
+
+返回 jQuery 集合
+*/
+$('#btnTrigger')
+    .dblclick(function(){
+        console.log('Button double clicked!');
+    })
+    .dblclick();
+
+
+/*
+hover(enterHandler, leaveHandler)
+hover(handler)
+为匹配元素的 mouseenter 和 mouseleave 事件建立处理器
+
+enterHandler(Function)：作为 mouseenter 处理器的函数
+leaveHandler(Function)：作为 mouseleave 处理器的函数
+handler(Function)：对于 mouseenter 和 mouseleave 事件都会调用的单个处理器
+*/
+function report(event) {
+    event.stopPropagation();
+    console.log(event.type + ' on ' + event.target.id);
+ }
+
+$('#outer1').on('mouseenter mouseleave', report);
+$('#inner1').on('mouseenter mouseleave', report);
+$('#outer2').hover(report);
+$('#inner2').hover(report);
+
+/*
+自定义事件
+*/
+$('#btnTrigger').on('customEvent', function(){
+    console.log('Custom event invoked!')
+});
+
+$('#anotherBtn').click(function(){
+    $('#btnTrigger').trigger('customEvent');
+});
+
+
+/*
+为事件添加命名空间
+事件是后缀命名空间，用圆点分割
+*/
+$('#btnTestNamespacing')
+    .on('click.editMode.myApp', function(){
+        console.log('Click event under editMode namespacing invoked!');
+    })
+    .on('mouseenter.editMode', function(){
+        console.log('Mouseenter event under editMode namespacing invoked!');
+    })
+    .on('mouseleave.myApp', function(){
+        console.log('Mouseleave event under editMode namespacing invoked!');
+    });
+
+$('#btn-remove-by-namespacing').click(function(){
+    $('#btnTestNamespacing').off('.editMode');
+})

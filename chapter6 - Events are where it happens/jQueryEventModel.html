@@ -10,6 +10,38 @@
             display: block;
             margin: auto;
          }
+         #wrapper
+         {
+            border: 1px solid #3A5895;
+            padding: 10px;
+         }
+
+         #address:focus
+         {
+            border: 3px solid #000000;
+         }
+         .outer
+         {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000000;
+            background-color: #55AA55;
+         }
+
+         .inner
+         {
+            width: 50%;
+            height: 50%;
+            margin: 0.5em auto;
+            border: 1px solid #000000;
+            background-color: #FFFF4F;
+         }
+
+         #outer2
+         {
+            margin-top: 2em;
+         }
       </style>
    </head>
    <body>
@@ -27,6 +59,32 @@
           <button id="btn-attach">Attach handler</button>
           <button id="btn-remove">Remove handler</button>
       </p>
+
+      <p>
+          <div id="foo">
+              Trigger part
+          </div>
+      </p>
+
+      <div id="wrapper">
+        <button id="btnTrigger">Click me!</button>
+        <button id="anotherBtn">Trigger custom event</button>
+        <input type="text" id="address" />
+     </div>
+
+     <div class="outer" id="outer1">
+        Outer 1
+        <div class="inner" id="inner1">Inner 1</div>
+     </div>
+     <div class="outer" id="outer2">
+        Outer 2
+        <div class="inner" id="inner2">Inner 2</div>
+     </div>
+
+    <p>
+        <button id="btnTestNamespacing">Test Namespacing</button>
+        <button id="btn-remove-by-namespacing">Remove by namespacing</button>
+    </p>
 
       <p>The output is printed on the console</p>
 
